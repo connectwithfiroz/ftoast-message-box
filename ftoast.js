@@ -6,16 +6,20 @@ toastCont.innerHTML = '<i class="fa fa-times toast-close"></i><div class="toast-
 body.prepend(toastCont);
 
 const toast = document.querySelector(".toast");
+const progressbar = document.querySelector(".toast-progresbar");
+var id;
 function ftoast(type = 'success', title = 'Success', message = 'Success Message', duration = 10, icon = 'fa-check') {
+    let mark = 'check';
+    document.documentElement.style.setProperty('--toastDur', `${duration}s`);
     // --- set timeout to hide toast
-    setTimeout(() => {
+    id = setTimeout(() => {
         toast.classList.remove('active');
-        document.querySelector(".toast-progresbar").classList.remove('active');
+        progressbar.classList.remove('active');
+        document.documentElement.style.setProperty('--toastDur', 0);
     }, duration * 1000)
     //--- end set timeout to hide toast
 
-    let mark = 'check';
-    document.documentElement.style.setProperty('--toastDur', `${duration}s`);
+
 
     switch (type) {
         case 'alert':
@@ -45,4 +49,7 @@ function ftoast(type = 'success', title = 'Success', message = 'Success Message'
 //to remove toast
 document.querySelector(".toast-close").addEventListener('click', () => {
     toast.classList.remove('active');
+    progressbar.classList.remove('active');
+    document.documentElement.style.setProperty('--toastDur', 0);
+    clearTimeout(id)
 })
