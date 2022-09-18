@@ -8,48 +8,49 @@ body.prepend(toastCont);
 const toast = document.querySelector(".toast");
 const progressbar = document.querySelector(".toast-progresbar");
 var id;
+function toastClose() {
+    document.documentElement.style.setProperty('--toastDur', '0s');
+    toast.classList.remove('active');
+    progressbar.classList.remove('active');
+
+    clearTimeout(id)
+}
 function ftoast(type = 'success', title = 'Success', message = 'Success Message', duration = 10, icon = 'fa-check') {
-    let mark = 'check';
+    toastClose();
     document.documentElement.style.setProperty('--toastDur', `${duration}s`);
     // --- set timeout to hide toast
     id = setTimeout(() => {
-        toast.classList.remove('active');
-        progressbar.classList.remove('active');
-        document.documentElement.style.setProperty('--toastDur', 0);
+        toastClose();
     }, duration * 1000)
     //--- end set timeout to hide toast
-
-
-
     switch (type) {
         case 'alert':
             document.documentElement.style.setProperty('--toastColor', 'red');
-            mark = 'exclamation';
+            icon = 'exclamation';
             break;
         case 'warning':
             document.documentElement.style.setProperty('--toastColor', 'orange');
-            mark = 'exclamation-triangle';
+            icon = 'exclamation-triangle';
             break;
         case 'success':
             document.documentElement.style.setProperty('--toastColor', 'green');
-            mark = 'check';
+            icon = 'check';
             break;
         default:
             document.documentElement.style.setProperty('--toastColor', type);
-            mark = icon;
+            icon = icon;
             break;
     }
-    document.querySelector('.toast-symbol').innerHTML = `<i class="fa fa-${mark} "></i>`;
+    document.querySelector('.toast-symbol').innerHTML = `<i class="fa fa-${icon} "></i>`;
     document.querySelector('.toast .status').innerText = title;
     document.querySelector('.toast .message').innerText = message;
     toast.classList.add('active');
     document.querySelector(".toast-progresbar").classList.add('active');
 }
 
+
+
 //to remove toast
 document.querySelector(".toast-close").addEventListener('click', () => {
-    toast.classList.remove('active');
-    progressbar.classList.remove('active');
-    document.documentElement.style.setProperty('--toastDur', 0);
-    clearTimeout(id)
+    toastClose();
 })
