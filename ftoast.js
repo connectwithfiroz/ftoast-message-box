@@ -16,11 +16,11 @@ head.append(cssEle);
 
 
 
-toastCont.classList.add('toast');
+toastCont.classList.add('firoz-toast');
 toastCont.innerHTML = '<i class="fa fa-times toast-close"></i><div class="toast-content"><div class="toast-symbol"></div><div class="toast-message"><span class="status">Success</span><span class="message">File uploaded.</span></div></div><div class="toast-progresbar"></div>';
 body.prepend(toastCont);
 
-const toast = document.querySelector(".toast");
+const toast = document.querySelector(".firoz-toast");
 const progressbar = document.querySelector(".toast-progresbar");
 var id;
 function toastClose() {
