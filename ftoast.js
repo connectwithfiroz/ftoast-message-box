@@ -63,6 +63,8 @@ function ftoast(type = 'success', title = '', message = '', duration = 10, icon 
             if(title=='') title = 'Default';
             if(message=='') title = 'Default Message';
             break;
+        return 1;
+            
     }
     document.querySelector('.toast-symbol').innerHTML = `<i class="fa fa-${icon} "></i>`;
     document.querySelector('.toast .status').innerText = title;
