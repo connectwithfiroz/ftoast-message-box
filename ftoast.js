@@ -30,7 +30,7 @@ function toastClose() {
 
     clearTimeout(id);
 }
-function ftoast(type = 'success', title = 'Success', message = 'Success Message', duration = 10, icon = 'fa-check') {
+function ftoast(type = 'success', title = '', message = 'Success Message', duration = 10, icon = 'fa-check') {
     toastClose();
     document.documentElement.style.setProperty('--toastDur', `${duration}s`);
     // --- set timeout to hide toast
@@ -42,22 +42,26 @@ function ftoast(type = 'success', title = 'Success', message = 'Success Message'
         case 'alert':
             document.documentElement.style.setProperty('--toastColor', 'red');
             icon = 'exclamation';
-            title = 'Danger';
+            if(title=='') title = 'Danger';
+            if(message=='') title = 'Danger Message.';
             break;
         case 'warning':
             document.documentElement.style.setProperty('--toastColor', 'orange');
             icon = 'exclamation-triangle';
-            title = 'Warning';
+            if(title=='') title = 'Warning';
+            if(message=='') title = 'Warning Message.';
             break;
         case 'success':
             document.documentElement.style.setProperty('--toastColor', 'green');
             icon = 'check';
-            title = 'Success';
+            if(title=='') title = 'Success';
+            if(message=='') title = 'Success Message';
             break;
         default:
             document.documentElement.style.setProperty('--toastColor', type);
             icon = icon;
-            title = 'Default';
+            if(title=='') title = 'Default';
+            if(message=='') title = 'Default Message';
             break;
     }
     document.querySelector('.toast-symbol').innerHTML = `<i class="fa fa-${icon} "></i>`;
