@@ -67,8 +67,8 @@ function ftoast(type = 'success', title = '', message = '', duration = 10, icon 
             
     }
     document.querySelector('.toast-symbol').innerHTML = `<i class="fa fa-${icon} "></i>`;
-    document.querySelector('.toast .status').innerText = title;
-    document.querySelector('.toast .message').innerText = message;
+    document.querySelector('.firoz-toast .status').innerText = title;
+    document.querySelector('.firoz-toast .message').innerText = message;
     toast.classList.add('active');
     document.querySelector(".toast-progresbar").classList.add('active');
     
