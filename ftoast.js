@@ -4,8 +4,14 @@ const toastCont = document.createElement("div");
 const cssEle = document.createElement("link");
 cssEle.setAttribute('rel', 'stylesheet');
 cssEle.setAttribute('href', 'https://connectwithfiroz.github.io/ftoast-message-box/ftoast-style.css');
-console.log(cssEle);
 head.append(cssEle);
+
+
+const fontAwesome = document.createElement("link");
+fontAwesome.setAttribute('rel', 'stylesheet');
+fontAwesome.setAttribute('href', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
+head.append(fontAwesome);
+
 toastCont.classList.add('toast');
 toastCont.innerHTML = '<i class="fa fa-times toast-close"></i><div class="toast-content"><div class="toast-symbol"></div><div class="toast-message"><span class="status">Success</span><span class="message">File uploaded.</span></div></div><div class="toast-progresbar"></div>';
 body.prepend(toastCont);
