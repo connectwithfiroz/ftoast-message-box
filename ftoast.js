@@ -63,7 +63,7 @@ function ftoast(type = 'success', title = '', message = '', duration = 10, icon 
             if(title=='') title = 'Default';
             if(message=='') title = 'Default Message';
             break;
-        return 1;
+
             
     }
     document.querySelector('.toast-symbol').innerHTML = `<i class="fa fa-${icon} "></i>`;
@@ -71,6 +71,8 @@ function ftoast(type = 'success', title = '', message = '', duration = 10, icon 
     document.querySelector('.toast .message').innerText = message;
     toast.classList.add('active');
     document.querySelector(".toast-progresbar").classList.add('active');
+    
+            return 1;
 }
 
 
