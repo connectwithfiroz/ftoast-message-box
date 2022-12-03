@@ -30,7 +30,7 @@ function toastClose() {
 
     clearTimeout(id);
 }
-function ftoast(type = 'success', title = '', message = 'Success Message', duration = 10, icon = 'fa-check') {
+function ftoast(type = 'success', title = '', message = '', duration = 10, icon = 'fa-check') {
     toastClose();
     document.documentElement.style.setProperty('--toastDur', `${duration}s`);
     // --- set timeout to hide toast
