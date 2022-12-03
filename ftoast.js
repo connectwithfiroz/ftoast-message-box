@@ -1,6 +1,10 @@
 const head = document.getElementsByTagName('head')[0];
 const body = document.getElementsByTagName('body')[0];
 const toastCont = document.createElement("div");
+const cssEle = document.createElement("link");
+cssEle.setAttribute('rel', 'stylesheet');
+cssEle.setAttribute('href', 'https://connectwithfiroz.github.io/ftoast-message-box/ftoast-style.css');
+head.append(cssEle);
 toastCont.classList.add('toast');
 toastCont.innerHTML = '<i class="fa fa-times toast-close"></i><div class="toast-content"><div class="toast-symbol"></div><div class="toast-message"><span class="status">Success</span><span class="message">File uploaded.</span></div></div><div class="toast-progresbar"></div>';
 body.prepend(toastCont);
@@ -27,18 +31,22 @@ function ftoast(type = 'success', title = 'Success', message = 'Success Message'
         case 'alert':
             document.documentElement.style.setProperty('--toastColor', 'red');
             icon = 'exclamation';
+            title = 'Danger';
             break;
         case 'warning':
             document.documentElement.style.setProperty('--toastColor', 'orange');
             icon = 'exclamation-triangle';
+            title = 'Warning';
             break;
         case 'success':
             document.documentElement.style.setProperty('--toastColor', 'green');
             icon = 'check';
+            title = 'Success';
             break;
         default:
             document.documentElement.style.setProperty('--toastColor', type);
             icon = icon;
+            title = 'Default';
             break;
     }
     document.querySelector('.toast-symbol').innerHTML = `<i class="fa fa-${icon} "></i>`;
