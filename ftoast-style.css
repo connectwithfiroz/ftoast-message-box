@@ -21,9 +21,11 @@
   transform: translateX(calc(100% + 12px));
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   z-index: 55555 !important;
+  display:none;
 }
 .firoz-toast.active {
   transform: translateX(0%);
+  display:inline;
 }
 .firoz-toast .toast-content {
   padding: 5px 10px;
