@@ -3,7 +3,7 @@
   --toastDur: 10s;
 }
 .firoz-toast {
-  display:none;
+  opacity:0;
   z-index: 999999;
   background-color: #fff;
   width: 300px;
@@ -25,7 +25,7 @@
   
 }
 .firoz-toast.active {
-  display:inline;
+  opacity:1;
   transform: translateX(0%);
   
 }
